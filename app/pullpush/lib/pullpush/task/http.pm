@@ -32,7 +32,8 @@ sub register {
 	$app->minion->add_task($method => sub {
     	my ($job, $args) = @_;
                 
- 		my $result = $self->do($job);
+		$job->app->log->debug(sprintf('[%s][%s][do] args:%s', $method, $job->id, encode_json($args)));
+ 		my $result = $self->do($job, $args);
 #         my $tx = $self->ua->post(sprintf('http://localhost:3000/result/%s', $job->id),
 #             json => $result
 #         );
@@ -43,7 +44,10 @@ sub register {
 }
 
 sub do{
-	my ($self, $job) = @_;
+	my ($self, $job, $args) = @_;
+    unless (defined $args->{url}) {
+        die ("no url");
+    }
 	my $result = {
     };
     return $result;

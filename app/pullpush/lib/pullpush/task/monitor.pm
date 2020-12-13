@@ -45,7 +45,6 @@ sub register {
 
 sub do{
 	my ($self, $job) = @_;
-	my $method = 'monitor';
     my $load = [Sys::CpuLoad::load];
 	my $result = {
         load    => {

@@ -20,7 +20,7 @@ sub startup ($self) {
     use Mojo::SQLite;
     # XXX use Mojo::File
     $self->plugin(Minion => { SQLite => Mojo::SQLite->new($config->{minion_db}) });
-    # $self->plugin('Minion::Admin');
+    $self->plugin('Minion::Admin');
     foreach my $a_task (keys %{$config->{task}}) { 
         my $task_lib = sprintf('%s::%s',  $config->{task_base}, $a_task);
         # XXX task != worker?

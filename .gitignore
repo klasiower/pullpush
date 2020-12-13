@@ -1,4 +1,7 @@
 *.swp
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite
 
 !Build/
 .last_cover_stats
