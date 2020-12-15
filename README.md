@@ -5,15 +5,8 @@ decentralized working queue
 
 ### worker
 
-(
-    cd app/pushpull
-    script/pullpush minion worker
-)
+bin/start.sh minion
 
 ### webapp
 
-
-(
-    cd app/pushpull
-    script/pullpush prefork
-)
+bin/start.sh app
